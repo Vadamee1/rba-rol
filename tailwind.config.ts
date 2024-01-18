@@ -20,8 +20,9 @@ const config: Config = {
   darkMode: "class",
   plugins: [
     nextui({
+      defaultTheme: 'dark',
       themes: {
-        red: {
+        dark: {
           colors: {
             background: "#310413",
             foreground: "#FFFFFF",
