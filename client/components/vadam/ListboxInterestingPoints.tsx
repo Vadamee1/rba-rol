@@ -1,3 +1,5 @@
+'use client'
+
 import { LISTBOX_EXCLUSIVE_VADAM, LISTBOX_MULTIMUSE_VADAM } from "@/client/constants/listbox"
 import { Listbox, ListboxItem, ListboxSection } from "@nextui-org/react"
 import { AvatarComponent } from "../custom/AvatarComponent"

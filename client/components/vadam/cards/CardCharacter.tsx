@@ -17,16 +17,16 @@ export const CardCharacter = ({image}: Props) => {
         </CardHeader>
         <Image
           removeWrapper
-          className="z-0 w-full h-full scale-125 -translate-y-6 object-cover"
+          className="z-0 w-full h-full scale-130 -translate-y-6 object-cover"
           alt={image.alt} 
           src={image.src}
         />
-        <CardFooter className="absolute bg-white/30 bottom-0 border-t-1 border-zinc-100/50 z-10 justify-between">
+        <CardFooter className="absolute bg-black/50 bottom-0 border-t-1 border-zinc-100/50 z-10 justify-between">
           <div>
             <p>Available character sheet.</p>
           </div>
             <Button 
-              href="https://www.facebook.com/photo/?fbid=122115117992156070&set=a.122111320676156070"
+              href="https://www.facebook.com/photo/?fbid=122118781010156070&set=a.122111320676156070"
               as={Link}
               color="danger" 
               variant="ghost" 

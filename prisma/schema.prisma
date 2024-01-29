@@ -1,0 +1,57 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+model User {
+  id             Int       @id @default(autoincrement())
+  name           String    @db.VarChar(25)
+  secondName     String?   @db.VarChar(25) @map("second_name")
+  lastName       String    @db.VarChar(25) @map("last_name")
+  nickname       String?   @db.VarChar(25)
+  email          String    @db.VarChar(50) @unique
+  password       String    @db.VarChar(100)
+  createdAt      DateTime  @default(now()) @map("created_at")
+  updatedAt      DateTime  @updatedAt @map("updated_at")
+  deletedAt      DateTime? @map("deleted_at")
+
+  sectionRBA SectionRBA[]
+
+  @@map("user")
+}
+
+model SectionRBA {
+  id        Int       @id @default(autoincrement())
+  name      String    @db.VarChar(25)
+  color     String    @db.VarChar(25)
+  userId    Int       @map("user_id")
+  createdAt DateTime  @default(now()) @map("created_at")
+  updatedAt DateTime  @updatedAt @map("updated_at")
+  deletedAt DateTime? @map("deleted_at")
+
+  user User @relation(fields: [userId], references: [id])
+  accordionRBA AccordionRBA[]
+
+  @@map("section_rba")
+}
+
+model AccordionRBA {
+  id             Int       @id @default(autoincrement())
+  title          String    @db.VarChar(25)
+  description    String    @db.VarChar(500)
+  sectionRBAId   Int       @map("section_rba_id")
+  createdAt      DateTime  @default(now()) @map("created_at")
+  updatedAt      DateTime  @updatedAt @map("updated_at")
+  deletedAt      DateTime? @map("deleted_at")
+
+  sectionRBA SectionRBA @relation(fields: [sectionRBAId], references: [id])
+
+  @@map("accordion_rba")
+}
