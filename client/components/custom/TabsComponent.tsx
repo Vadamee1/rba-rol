@@ -11,7 +11,6 @@ interface Props {
 export const TabsComponent = ({ options }: Props) => {
 
   const pathname = usePathname()
-  console.log(pathname)
 
   return (
     <>

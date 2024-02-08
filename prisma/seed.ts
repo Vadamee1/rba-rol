@@ -1,8 +1,10 @@
 import prisma from ".";
+import ColorSeed from "./seeds/ColorSeed";
 import UserSeed from "./seeds/UserSeed";
 
 async function main() {
   await UserSeed()
+  await ColorSeed()
 }
 
 main()

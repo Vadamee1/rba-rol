@@ -30,13 +30,12 @@ model User {
 model SectionRBA {
   id        Int       @id @default(autoincrement())
   name      String    @db.VarChar(25)
-  color     String    @db.VarChar(25)
   userId    Int       @map("user_id")
   createdAt DateTime  @default(now()) @map("created_at")
   updatedAt DateTime  @updatedAt @map("updated_at")
   deletedAt DateTime? @map("deleted_at")
 
-  user User @relation(fields: [userId], references: [id])
+  user  User  @relation(fields: [userId], references: [id])
   accordionRBA AccordionRBA[]
 
   @@map("section_rba")
@@ -54,4 +53,15 @@ model AccordionRBA {
   sectionRBA SectionRBA @relation(fields: [sectionRBAId], references: [id])
 
   @@map("accordion_rba")
+}
+
+model Color {
+  id        Int       @id @default(autoincrement())
+  name      String    @db.VarChar(25)
+  key       String    @db.VarChar(25)
+  createdAt DateTime  @default(now()) @map("created_at")
+  updatedAt DateTime  @updatedAt @map("updated_at")
+  deletedAt DateTime? @map("deleted_at")
+
+  @@map("color")
 }

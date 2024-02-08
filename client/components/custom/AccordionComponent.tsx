@@ -12,7 +12,7 @@ export const AccordionComponent = ({ info }: Props) => {
     <>
       <Accordion variant="bordered" >
         {info.map((accordion) => (
-          <AccordionItem key={accordion.key} title={accordion.title}>{accordion.content}</AccordionItem>
+          <AccordionItem key={accordion.id} title={accordion.title}>{accordion.description}</AccordionItem>
         ))}
       </Accordion>
     </>

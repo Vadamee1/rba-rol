@@ -14,6 +14,7 @@ const config: Config = {
         'gradient-radial': 'radial-gradient(var(--tw-gradient-stops))',
         'gradient-conic': 'conic-gradient(from 180deg at 50% 50%, var(--tw-gradient-stops))',
         'vadam-backg': 'url("/public/images/backgrounds/vadam-back.png")',
+        'vadam-background': 'url("/images/backgrounds/wppVadam.jpg")',
       },
     },
   },
@@ -26,6 +27,7 @@ const config: Config = {
           colors: {
             background: "#310413",
             foreground: "#FFFFFF",
+            primary: "#004493"
           }
         }
       }

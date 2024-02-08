@@ -1,5 +1,5 @@
 export interface AccordionType {
-  key: number
+  id: number
   title: string
-  content: string
+  description: string
 }

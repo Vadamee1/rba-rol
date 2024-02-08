@@ -6,9 +6,9 @@ export default function VadamRBALayout({ children }: {
 }) {
 
   return (
-    <div>
+    <div className="">
       <NavbarComponent options={NAVBAR_OPTIONS}/>
-      {children}
+      {children} 
     </div>
   )
 }

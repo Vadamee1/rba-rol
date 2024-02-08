@@ -18,7 +18,6 @@ CREATE TABLE "user" (
 CREATE TABLE "section_rba" (
     "id" SERIAL NOT NULL,
     "name" VARCHAR(25) NOT NULL,
-    "color" VARCHAR(25) NOT NULL,
     "user_id" INTEGER NOT NULL,
     "created_at" TIMESTAMP(3) NOT NULL DEFAULT CURRENT_TIMESTAMP,
     "updated_at" TIMESTAMP(3) NOT NULL,
@@ -38,6 +37,18 @@ CREATE TABLE "accordion_rba" (
     "deleted_at" TIMESTAMP(3),
 
     CONSTRAINT "accordion_rba_pkey" PRIMARY KEY ("id")
+);
+
+-- CreateTable
+CREATE TABLE "color" (
+    "id" SERIAL NOT NULL,
+    "name" VARCHAR(25) NOT NULL,
+    "key" VARCHAR(25) NOT NULL,
+    "created_at" TIMESTAMP(3) NOT NULL DEFAULT CURRENT_TIMESTAMP,
+    "updated_at" TIMESTAMP(3) NOT NULL,
+    "deleted_at" TIMESTAMP(3),
+
+    CONSTRAINT "color_pkey" PRIMARY KEY ("id")
 );
 
 -- CreateIndex
