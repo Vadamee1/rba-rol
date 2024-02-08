@@ -91,6 +91,6 @@ export const ACCORDIONS_ROLEPLAY_VADAM: AccordionType[] = [
   {
     key: 7,
     title: "Partner",
-    content: "Poseo partner y sou uni-partner. No busco cambiar esto y ella se lleva mi total atención y prioridad, además de un par de personitas."
+    content: "No hay castings disponibles."
   }
 ] 
