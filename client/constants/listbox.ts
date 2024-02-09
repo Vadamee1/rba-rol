@@ -1,12 +1,12 @@
 interface ListboxType {
   key: number
-  color: 'danger' |'warning' | 'secondary'
+  color: 'danger' |'warning' | 'secondary' | 'success'
   description?: string
   content: string
   href: string
   avatar: {
     src: string
-    color: 'danger' |'warning' | 'secondary'
+    color: 'danger' |'warning' | 'secondary' | 'success'
   }
 }
 
@@ -32,7 +32,18 @@ export const LISTBOX_EXCLUSIVE_VADAM: ListboxType[] = [
       src: "/images/vadam/profile/Kayn.jpg", 
       color: "secondary"
     }
-  }
+  },
+  {
+    key: 3,
+    color: "success",
+    content: "Hal Jordan - DC Comics",
+    description: "Green Lantern",
+    href: "https://www.facebook.com/profile.php?id=61554900780714&mibextid=JRoKGi",
+    avatar: {
+      src: "/images/vadam/profile/Jordan.jpg",
+      color: "success"
+    }
+  },
 ]
 
 export const LISTBOX_MULTIMUSE_VADAM: ListboxType[] = [
@@ -78,7 +89,16 @@ export const ACCOUNTS_VADAM_TABLE: AccountTable[] = [
     avatar: "/images/vadam/profile/Kayn.jpg",
   },
   {
-    key: 1,
+    key: 3,
+    name: "Hal Jordan",
+    nick: "Green Lantern",
+    type: "Exclusive",
+    status: true,
+    href: "https://www.facebook.com/profile.php?id=61554900780714&mibextid=JRoKGi",
+    avatar: "/images/vadam/profile/Vadam.jpg",
+  },
+  {
+    key: 4,
     name: "Vadam",
     type: "Multimuse",
     status: true,
