@@ -3,7 +3,7 @@
 import { Avatar } from "@nextui-org/react"
 
 interface Props {
-    color: "warning" | "danger" | "secondary"
+    color: "warning" | "danger" | "secondary" | "success"
     src: string
 }
 
