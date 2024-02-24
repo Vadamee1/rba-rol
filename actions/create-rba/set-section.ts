@@ -1,51 +1,46 @@
-'use server'
+"use server";
 
-import { SectionRBADto, SectionWithAccordions } from "@/client/interfaces/rba/SectionRBADto"
-import prisma from "@/prisma"
+import prisma from "@/prisma";
+import { SectionRBADto } from "@/src/interfaces/rba/SectionRBADto";
 
-export const setSection = async({name, userId}: SectionRBADto) => {
+export const setSection = async ({ name, userId }: SectionRBADto) => {
   try {
-    
     const newSection = prisma.sectionRBA.create({
       data: {
         name,
-        userId
-      }
-    })
+        userId,
+      },
+    });
 
-    return newSection
-
+    return newSection;
   } catch (error) {
-    console.log(error)
+    console.log(error);
     return {
       ok: false,
-      message: 'No fue posible guardar la sección.'
-    }
+      message: "No fue posible guardar la sección.",
+    };
   }
-}
+};
 
-export const getSection = async(userId: number) => {
+export const getSection = async (userId: number) => {
   try {
-    
     const sections = prisma.sectionRBA.findMany({
       where: { userId: userId },
       select: {
         id: true,
         name: true,
-      }
-    })
-    
-    return sections
+      },
+    });
 
+    return sections;
   } catch (error) {
-    console.log(error)
-    throw new Error('No se logró.')
+    console.log(error);
+    throw new Error("No se logró.");
   }
-}
+};
 
 export const getSectionsWithAccordions = async (userId: number) => {
   try {
-    
     const sectionsWithAccordions = prisma.sectionRBA.findMany({
       where: { userId: userId },
       select: {
@@ -55,16 +50,15 @@ export const getSectionsWithAccordions = async (userId: number) => {
           select: {
             id: true,
             title: true,
-            description: true
-          }
-        }
-      }
-    })
+            description: true,
+          },
+        },
+      },
+    });
 
-    return sectionsWithAccordions
-
+    return sectionsWithAccordions;
   } catch (error) {
-    console.log(error)
-    throw new Error('No se logró.')
+    console.log(error);
+    throw new Error("No se logró.");
   }
-}
+};

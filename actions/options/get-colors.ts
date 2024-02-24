@@ -1,22 +1,20 @@
-'use server'
+"use server";
 
-import ColorDto from "@/client/interfaces/common/colors"
-import prisma from "@/prisma"
+import prisma from "@/prisma";
 
-export const getColors = async() => {
+export const getColors = async () => {
   try {
     const colors = await prisma.color.findMany({
       select: {
         id: true,
         name: true,
-        key: true
-      }
-    })
+        key: true,
+      },
+    });
 
-    return colors
-
+    return colors;
   } catch (error) {
-    console.log(error)
-    throw new Error('No se logró.')
+    console.log(error);
+    throw new Error("No se logró.");
   }
-}
+};
