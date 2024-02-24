@@ -1,5 +1,4 @@
 import { Card, CardBody, CardHeader, Divider } from "@nextui-org/react"
-import { SectionRBA } from "@prisma/client"
 import { AccordionForm } from "./AccordionForm"
 import { Section, SectionWithAccordions } from "@/client/interfaces/rba/SectionRBADto"
 import { Dispatch, SetStateAction } from "react"

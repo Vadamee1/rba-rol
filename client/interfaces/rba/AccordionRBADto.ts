@@ -3,3 +3,9 @@ export interface AccordionRBADto {
   description: string
   sectionRBAId: number
 }
+
+export interface Accordion {
+  id: number
+  title: string
+  description: string
+}

@@ -21,8 +21,6 @@ export const PageCreateRBA = ({sectionsWithAccordions, sections}: Props) => {
   const [sectionsWithAccordionsState, setSectionState] = useState(sectionsWithAccordions)
   const [sectionsSelectState, setSectionsSelectState] = useState(sections)
 
-  console.log(sectionsSelectState)
-
   return (
     <>
     <div className="flex flex-col w-full md:block basis-2/6">
@@ -34,12 +32,12 @@ export const PageCreateRBA = ({sectionsWithAccordions, sections}: Props) => {
             sections={sectionsSelectState} />
         </div>
         <div className="md:hidden mt-5">
-          <ShowSection sectionWithAccordions={sectionsWithAccordionsState}/>
+          <ShowSection sectionWithAccordions={sectionsWithAccordionsState} setSectionState={setSectionState} setSectionSelectState={setSectionsSelectState}/>
         </div>
       </div>
     </div>
     <div className="hidden md:block basis-4/6 mr-7">
-      <ShowSection sectionWithAccordions={sectionsWithAccordionsState}/>
+      <ShowSection sectionWithAccordions={sectionsWithAccordionsState} setSectionState={setSectionState} setSectionSelectState={setSectionsSelectState}/>
     </div>
     </>
   )

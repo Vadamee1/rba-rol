@@ -1,7 +1,7 @@
 'use client'
 
 import { PathNavbar } from "@/client/interfaces/paths/pathsNavbar";
-import { Avatar, Link, Navbar, NavbarBrand, NavbarContent, NavbarItem } from "@nextui-org/react";
+import { Avatar, Button, Link, Navbar, NavbarBrand, NavbarContent, NavbarItem } from "@nextui-org/react";
 
 interface Props {
   options: PathNavbar[]
@@ -12,7 +12,7 @@ export const NavbarComponent = ({options}: Props) => {
     <>
       <Navbar>
         <NavbarBrand>
-          <p className="">About account</p>
+          <Link color="foreground" href="/vadam">About account</Link>
         </NavbarBrand>
         <div className="hidden sm:block">
           <NavbarContent>

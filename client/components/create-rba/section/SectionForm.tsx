@@ -1,11 +1,12 @@
 'use client'
 
-import { getSection, getSectionsWithAccordions, setSection } from "@/actions/create-rba/set-section"
 import { Section, SectionWithAccordions } from "@/client/interfaces/rba/SectionRBADto"
 import { Button, Input } from "@nextui-org/react"
 import { useFormik } from "formik"
 import * as yup from "yup"
 import { Dispatch, SetStateAction } from "react"
+import { createSection } from "@/actions/create-rba/section/create-section"
+import { getSection, getSectionsWithAccordions } from "@/actions/create-rba/section/get-section"
 
 interface Props {
   setSectionState: Dispatch<SetStateAction<SectionWithAccordions[]>>
@@ -23,7 +24,7 @@ export const SectionForm = ({setSectionState, setSectionSelectState}: Props) => 
       name: yup.string().required('Debes ingresar un nombre')
     }),
     onSubmit: async values => {
-      setSection(values)
+      createSection(values)
       setSectionSelectState(await getSection(1))
       setSectionState(await getSectionsWithAccordions(1))
       values.name = ""

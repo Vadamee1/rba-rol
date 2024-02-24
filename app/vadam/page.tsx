@@ -1,9 +1,10 @@
+import { RedirectCard } from "@/client/components/vadam/home/RedirectCard";
 
 
 export default function VadamPage() {
   return (
-    <div>
-      <h1>Hi</h1>
+    <div className="flex justify-center items-center h-96">
+      <RedirectCard/>
     </div>
   )
 }

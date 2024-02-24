@@ -1,11 +1,11 @@
 'use client'
 
-import { setAccordion } from "@/actions/create-rba/set-accordion"
-import { getSection, getSectionsWithAccordions } from "@/actions/create-rba/set-section"
-import { Section, SectionWithAccordions, ShowSections } from "@/client/interfaces/rba/SectionRBADto"
-import { Button, Input, Select, SelectItem } from "@nextui-org/react"
+import { createAccordion } from "@/actions/create-rba/accordion/create-accordion"
+import { getSectionsWithAccordions } from "@/actions/create-rba/section/get-section"
+import { Section, SectionWithAccordions } from "@/client/interfaces/rba/SectionRBADto"
+import { Button, Input, Select, SelectItem, Textarea } from "@nextui-org/react"
 import { useFormik } from "formik"
-import { Dispatch, SetStateAction, useState } from "react"
+import { Dispatch, SetStateAction } from "react"
 import * as yup from "yup"
 
 interface Props {
@@ -27,7 +27,7 @@ export const AccordionForm = ({setSectionState, sections}: Props) => {
       sectionRBAId: yup.string().matches(/[1-9]/, 'Selecciona una opción')
     }),
     onSubmit: async values => {
-      setAccordion(values)
+      createAccordion(values)
       setSectionState(await getSectionsWithAccordions(1))
       values.title = "",
       values.description = ""
@@ -45,11 +45,11 @@ export const AccordionForm = ({setSectionState, sections}: Props) => {
             items={sections} 
             name="sectionRBAId" 
             onChange={formik.handleChange}
-            selectedKeys={[formik.values.sectionRBAId]}
             errorMessage={formik.errors.sectionRBAId}
+            value={formik.values.sectionRBAId}
           >
             {sections.map( (section) => (
-            <SelectItem key={section.id} value={formik.values.sectionRBAId} >{section.name}</SelectItem>
+            <SelectItem key={section.id} value={section.id} >{section.name}</SelectItem>
             ))}
           </Select>
           <Input
@@ -61,7 +61,7 @@ export const AccordionForm = ({setSectionState, sections}: Props) => {
             value={formik.values.title}
             errorMessage={formik.errors.title}
           />
-          <Input
+          <Textarea
             variant='bordered' 
             label="Descripción" 
             type="text" 
